@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="utf-8">
+    <title>Älvans biopalats</title>
+    <!-- Bootstrap -->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+        }
+
+        .hero-unit {
+            background: #a90329; /* Old browsers */
+            background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+            background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); /* W3C */
+
+            color: white;
+            text-shadow: #000 0 0 15px;
+
+            margin-top: 20px;
+        }
+
+        .hero-unit h1 {
+            text-align: center;
+        }
+
+        .hero-unit p {
+            background: none;
+            text-align: center;
+        }
+
+        .footer {
+            padding: 70px 0;
+            margin-top: 70px;
+            border-top: 1px solid #E5E5E5;
+            background-color: whiteSmoke;
+        }
+
+        .btn.couch {
+            padding: 10px 20px;
+        }
+
+        img {max-width: 200px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero-unit hidden-phone">
+        <h1>Älvans biopalats</h1>
+
+        <p>Söndagen den 8:e oktober</p>
+    </div>
+    <div class="visible-phone">
+        <h1>Älvans biopalats</h1>
+
+        <p>Söndagen den 8:e oktober</p>
+    </div>
+    <div class="row">
+        <div class="span6">
+            <h2>The Expendables  2</h2>
+
+            <div class="pull-right hidden-phone">
+                <img src="http://www.filmofilia.com/wp-content/uploads/2012/07/The-Expendables-2-Poster.jpg"
+                     class="img-polaroid"/>
+            </div>
+
+            <p>
+                Mr. Church reunites the Expendables for what should be an easy paycheck, but when one of their men is
+                murdered on the job, their quest for revenge puts them deep in enemy territory and up against an
+                unexpected threat.
+            </p>
+            <dl class="">
+                <dt>Salong</dt>
+                <dd>1</dd>
+                <dt>Tid</dt>
+                <dd>Ikväll</dd>
+            </dl>
+            <a href="http://www.imdb.com/title/tt1764651/" class="btn btn-info">Läs mer</a>
+            <a href="#boka1" data-toggle="modal" class="btn btn-primary">Boka</a>
+            <div style="clear:both"></div>
+        </div>
+        <div class="span6">
+            <h2>Moonrise Kingdom</h2>
+
+            <div class="pull-right hidden-phone">
+                <img src="http://thefilmexperience.net/storage/moonrise%20lara%20perm-jardin.jpg"
+                     class="img-polaroid"/>
+            </div>
+
+            <p>
+                A pair of young lovers flee their New England town, which causes a local search party to fan out and
+                find them.
+            </p>
+            <dl class="">
+                <dt>Salong</dt>
+                <dd>1</dd>
+                <dt>Tid</dt>
+                <dd>Ikväll</dd>
+            </dl>
+            <a href="http://www.imdb.com/title/tt1764651/" class="btn btn-info">Läs mer</a>
+            <a href="#boka2" data-toggle="modal" class="btn btn-primary">Boka</a>
+            <div style="clear:both"></div>
+        </div>
+    </div>
+
+    <div class="modal hide" id="boka1">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>The Expendables 2
+                <small>Salong 1 | 8:e oktober</small>
+            </h3>
+        </div>
+
+        <div class="modal-body">
+            <h4>Välj platser</h4>
+
+            <p class="btn-group">
+                <button class="btn" data-toggle="button">Cosy-hörn</button>
+                <button class="btn" data-toggle="button">Mittplats</button>
+                <button class="btn" data-toggle="button">Mittplats</button>
+                <button class="btn" data-toggle="button">Schäslong</button>
+            </p>
+
+            <p><em>Det finns inget bokningssystem, så du får höra av dig i stället</em></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Stäng</button>
+            <button class="btn btn-primary" disabled="disabled">Boka</button>
+        </div>
+    </div>
+
+    <div class="modal hide" id="boka2">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3>Moonrise Kingdom
+                <small>Salong 1 | 8:e oktober</small>
+            </h3>
+        </div>
+
+        <div class="modal-body">
+            <h4>Välj platser</h4>
+
+            <p class="btn-group">
+                <button class="btn" data-toggle="button">Cosy-hörn</button>
+                <button class="btn" data-toggle="button">Mittplats</button>
+                <button class="btn" data-toggle="button">Mittplats</button>
+                <button class="btn" data-toggle="button">Schäslong</button>
+            </p>
+
+            <p><em>Det finns inget bokningssystem, så du får höra av dig i stället</em></p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" data-dismiss="modal">Stäng</button>
+            <button class="btn btn-primary" disabled="disabled">Boka</button>
+        </div>
+    </div>
+
+</div>
+<footer class="footer">
+    <div class="container">
+        <address>
+            <strong>Älvans biopalats</strong> <br>
+            Älvans väg<br>
+            Umeå<br>
+        </address>
+    </div>
+</footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"></script>
+</body>
+</html>
