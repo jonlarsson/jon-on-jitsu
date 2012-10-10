@@ -1,8 +1,39 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
-a {
-  color: #00B7FF;
+.hero-unit.bio {
+    background: #a90329; /* Old browsers */
+    background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* FF3.6+ */
+    background: -webkit-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #a90329 0%, #8f0222 44%, #6d0019 100%); /* W3C */
+
+    color: white;
+    text-shadow: #000 0 0 15px;
+
+    margin-top: 20px;
 }
+
+.hero-unit.bio h1 {
+    text-align: center;
+}
+
+.hero-unit.bio p {
+    background: none;
+    text-align: center;
+}
+
+.footer {
+    padding: 70px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+    background-color: whiteSmoke;
+}
+
+.btn.couch {
+    padding: 10px 20px;
+}
+
+img.movie {max-width: 200px;}

@@ -1,0 +1,27 @@
+<ul>
+    <li ng-repeat="movie in movies">
+        <a href="" ng-click="editMovie(movie)">{{movie.name || 'Ny film'}}</a>
+    </li>
+    <li>
+        <a href="" ng-click="addMovie()">Ny...</a>
+    </li>
+</ul>
+<form name="form">
+    <legend>{{movie.name || 'Ny film'}}</legend>
+    <label>Namn</label>
+    <input type="text" ng-model="movie.name" />
+
+    <label>Text</label>
+    <textarea rows="10" ng-model="movie.text">
+
+    </textarea>
+
+    <label>Tid</label>
+    <input type="text" ng-model="movie.time" />
+
+    <label>Länk</label>
+    <input type="text" ng-model="movie.imdb" />
+
+    <label>Bild</label>
+    <input type="text" ng-model="movie.imgSrc" />
+</form>

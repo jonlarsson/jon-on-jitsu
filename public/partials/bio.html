@@ -1,0 +1,56 @@
+<div class="hero-unit bio hidden-phone">
+    <h1>Älvans biopalats</h1>
+
+    <p>Söndagen den 8:e oktober</p>
+</div>
+<div class="visible-phone">
+    <h1>Älvans biopalats</h1>
+
+    <p>Söndagen den 8:e oktober</p>
+</div>
+<div class="row">
+    <div class="span6" ng-repeat="movie in movies">
+        <h2>{{movie.name}}</h2>
+
+        <div class="pull-right hidden-phone">
+            <img class="movie img-polaroid" ng-src="{{movie.imgSrc}}"/>
+        </div>
+
+        <p>{{movie.text}}</p>
+        <dl class="">
+            <dt>Salong</dt>
+            <dd>1</dd>
+            <dt>Tid</dt>
+            <dd>{{movie.time}}</dd>
+        </dl>
+        <a href="{{movie.imdb}}" class="btn btn-info">Läs mer</a>
+        <a href="#boka" data-toggle="modal" ng-click="bookMovie = movie" class="btn btn-primary">Boka</a>
+        <div style="clear:both"></div>
+    </div>
+</div>
+
+<div class="modal hide" id="boka">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3>{{bookMovie.name}}
+            <small>Salong 1 | {{bookMovie.time}}</small>
+        </h3>
+    </div>
+
+    <div class="modal-body">
+        <h4>Välj platser</h4>
+
+        <p class="btn-group">
+            <button class="btn" data-toggle="button">Cosy-hörn</button>
+            <button class="btn" data-toggle="button">Mittplats</button>
+            <button class="btn" data-toggle="button">Mittplats</button>
+            <button class="btn" data-toggle="button">Schäslong</button>
+        </p>
+
+        <p><em>Det finns inget bokningssystem, så du får höra av dig i stället</em></p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal">Stäng</button>
+        <button class="btn btn-primary" disabled="disabled">Boka</button>
+    </div>
+</div>
