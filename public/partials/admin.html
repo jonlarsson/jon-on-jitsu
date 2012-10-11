@@ -1,12 +1,13 @@
 <ul>
     <li ng-repeat="movie in movies">
         <a href="" ng-click="editMovie(movie)">{{movie.name || 'Ny film'}}</a>
+        <span ng-show="isEditing(movie)"><--</span>
     </li>
     <li>
         <a href="" ng-click="addMovie()">Ny...</a>
     </li>
 </ul>
-<form name="form">
+<form name="form" ng-submit="saveMovie(movie)" ng-show="movie">
     <legend>{{movie.name || 'Ny film'}}</legend>
     <label>Namn</label>
     <input type="text" ng-model="movie.name" />
@@ -24,4 +25,6 @@
 
     <label>Bild</label>
     <input type="text" ng-model="movie.imgSrc" />
+    <button class="btn btn-danger" ng-click="deleteMovie()" type="button">Ta bort</button>
+    <button class="btn btn-primary" type="submit">Spara</button>
 </form>

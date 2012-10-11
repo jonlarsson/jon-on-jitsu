@@ -43,9 +43,12 @@ var example_auth_middleware = function () {
 
 app.configure(function () {
   app.set('connstring', 'mongodb://alex.mongohq.com:10081/jitsusessions');
+
+  mongoose.connect(app.get('connstring'), {user: process.env.M_USER, pass: process.env.M_PASS});
+
+  var bio = require('./models/bio')(mongoose);
+
   app.set('port', process.env.PORT || 3000);
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
   app.use(express.favicon());
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
@@ -53,13 +56,13 @@ app.configure(function () {
   app.use(express.cookieParser('your secret here'));
   app.use(express.session({
     secret:'topsecret',
-    store:new MongoStore({ url:app.set('connstring'), password:'jitsu', username:'jitsu' })
+    store:new MongoStore({ url:app.set('connstring'), password:process.env.M_PASS, username:process.env.M_USER })
   }));
   app.use(auth({
     strategies:[
       auth.Facebook({
-        appId:'358907717530380',
-        appSecret:'431fe6d58273c4439d1f9b828d122791',
+        appId:process.env.FB_APP_ID,
+        appSecret:process.env.FB_APP_SECRET,
         scope:"email",
         callback:'https://jonlarsson.nodejitsu.com/auth/facebook_callback'
       })
@@ -71,6 +74,16 @@ app.configure(function () {
     req.logout(); // Using the 'event' model to do a redirect on logout.
   });
 
+  if ('production' === app.get('env')) {
+    app.all("/api/*", function(req, res, next) {
+      if (req.isAuthenticated()) {
+        next();
+      } else {
+        return res.send(401, {user: "unauthenticated"});
+      }
+    });
+  }
+
   app.use('/api/user', function(req, res) {
      if (req.isAuthenticated()) {
        res.send(req.getAuthDetails().user);
@@ -78,12 +91,21 @@ app.configure(function () {
        res.send({user : "unauthenticated"});
      }
   });
-  app.use(express.static(path.join(__dirname, 'public')));
+  for(modelName in bio.api) {
+    app.get("/api/" + modelName + "s", bio.api[modelName].list);
+    app.post("/api/" + modelName + "s", bio.api[modelName].post);
+    app.put("/api/" + modelName + "s/:id", bio.api[modelName].put);
+    app.get("/api/" + modelName + "s/:id", bio.api[modelName].get);
+    app.delete("/api/" + modelName + "s/:id", bio.api[modelName].delete);
+    app.use(express.static(path.join(__dirname, 'public')));
+  }
+
 });
 
 app.configure('development', function () {
   app.use(express.errorHandler());
 });
+
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log("Express server listening on port " + app.get('port'));
